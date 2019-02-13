@@ -10,6 +10,10 @@ function initMap() { //initation
     });
 }
 
+function DisplayFromPin(message,type) {
+  console.log(message + " " + type);
+}
+
 axios.get(`https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/get`)
   .then(function (response) {
     let tempHold = JSON.parse(response.data.body);
@@ -26,9 +30,14 @@ axios.get(`https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/get`)
         map: map,
         title: 'Hello World!'
       });
-      heatMap = new google.maps.visualization.HeatmapLayer({
-        data: heatedPosition,
-        map: map
+      marker.addListener('click', function() {
+        DisplayFromPin(element.litterType,element.comment);
+        map.setZoom(10);
+        map.setCenter(marker.getPosition());
       });
+      // heatMap = new google.maps.visualization.HeatmapLayer({
+      //   data: heatedPosition,
+      //   map: map
+      // });
     });
   });
