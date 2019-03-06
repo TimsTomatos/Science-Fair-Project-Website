@@ -35,7 +35,8 @@ function SubmitForm() {
     comment: comment.value,
     long: long,
     lati: lati,
-    image: imagePushRef
+    image: imagePushRef,
+    user: auth.currentUser.email
   };
 
   db.collection('pins').add(info).then(() => {

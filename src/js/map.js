@@ -33,17 +33,17 @@ axios.get(`https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/get`)
         map.setZoom(10);
         map.setCenter(marker.getPosition());
       });
-      // heatMap = new google.maps.visualization.HeatmapLayer({
-      //   data: heatedPosition,
-      //   map: map
-      // });
+      heatMap = new google.maps.visualization.HeatmapLayer({
+        data: heatedPosition,
+        map: map
+      });
       
       // Converts Long/Lat to Address
       var lat = superHold[index].lati;
       var lng = superHold[index].long;
       var latlng = new google.maps.LatLng(lat, lng);
-      var geocoder = geocoder = new google.maps.Geocoder();
       var address;
+      var geocoder = geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'latLng': latlng }, function (results, status) {   // GEODCODE BUILT IN THEN
           if (status == google.maps.GeocoderStatus.OK) {
               if (results[1]) {
@@ -56,7 +56,7 @@ axios.get(`https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/get`)
           <p class="content"> ${address} </p> 
           `;
           // ${superHold[index].lati}, ${superHold[index].long}  ${element.littertype}: ${element.comment}
-      })
+      });
     });
   });
 

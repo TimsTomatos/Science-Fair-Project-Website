@@ -55,7 +55,7 @@ body, html, #root {
     display: inline-flex;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     background: rgba(0,0,0,0.3);
     justify-content: center;
     top: 0%;
@@ -87,9 +87,14 @@ body, html, #root {
     height: 10%;
     width: 10%;
     position: absolute;
-    left: 53%;
-    top: 22%;
+    left: 72%;
+    font-size: 1.5rem;
+    top: 13%;
     background: transparent;
     border: transparent;
     color: red;
+}
+
+.user {
+    text-align: center;
 }
