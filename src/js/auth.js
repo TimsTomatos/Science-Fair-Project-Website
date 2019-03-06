@@ -54,7 +54,7 @@ signUpForm.addEventListener('submit', (e) => {
     const email = signInValueUN.value;
     const password = signInValuePW.value;
 
-    auth.signUpWithEmailAndPassword(email,password).then(() => {
+    auth.createUserWithEmailAndPassword(email,password).then(() => {
         inPop.style.display = 'none';
     });
 });
