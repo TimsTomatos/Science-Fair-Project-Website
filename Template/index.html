@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAMbrdiuW5Faw-0eZ8RE5SkhcWrE6L0Y_g", //where all your datat stuff from
+            authDomain: "angular-vortex-217203.firebaseapp.com",
+            databaseURL: "https://angular-vortex-217203.firebaseio.com",
+            projectId: "angular-vortex-217203",
+            storageBucket: "angular-vortex-217203.appspot.com",
+            messagingSenderId: "289057629669"
+        };
+    
+        firebase.initializeApp(config); //initializes connection to firebase configuration
+        
+        const auth = firebase.auth(); //authrization variable
+        const db = firebase.firestore(); //database variable
+        
+        </script>
+        <script src="../js/magic.js"></script> <!--Acutual Code-->
+</body>
+</html>
