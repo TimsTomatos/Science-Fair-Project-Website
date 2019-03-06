@@ -4,6 +4,9 @@ var long;
 var lati;
 var comment = document.querySelector("#comment");
 
+
+const storageReference = storage.ref(); //reference to storage
+
 window.onload = function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setCoords);
@@ -20,14 +23,25 @@ function setCoords(position) {
 }
 
 function SubmitForm() {
-    axios.post('https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/post', {
-      litterType: type.value,
-      comment: comment.value,
-      long: long,
-      lati: lati,
-      image: 'cool! doesn\'t work'
-    })
-    .then(function (response) {
-      window.location.replace("../html/index/htm");
-    })
+
+  const imageFile = image.files[0];
+
+  const imagePushRef = `reportImages/${imageFile.name}`;
+
+
+
+  const info = {
+    litterType: type.value,
+    comment: comment.value,
+    long: long,
+    lati: lati,
+    image: imagePushRef
+  };
+
+  db.collection('pins').add(info).then(() => {
+    storageReference.child(imagePushRef).put(imageFile).then((data) => {
+      console.log('uploaded an image!');
+    });
+  });
 }
+

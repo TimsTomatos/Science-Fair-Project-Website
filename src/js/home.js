@@ -2,6 +2,11 @@ var map;
 var heatMap;
 var pins;
 var heatedPosition;
+var showStat = false;
+
+var mapContainer = document.querySelector('#mapContainer');
+var mapButton = document.querySelector('#mapButton')
+
 function initMap() { //initation
     map = new google.maps.Map(document.querySelector('#map'), { // where the map is located in HMTL
       center: {lat:21.300776, lng:-158.051877}, //where it will be defaulted too
@@ -12,6 +17,19 @@ function initMap() { //initation
 
 function DisplayFromPin(message,type) {
   console.log(message + " " + type);
+}
+
+function showMap(status) {
+  if(status === false) {
+    mapContainer.style.bottom = "0%";
+    mapButton.innerHTML = "V"
+    showStat = true;
+  }
+  else {
+    mapContainer.style.bottom = "-45.5%";
+    mapButton.innerHTML = "^";
+    showStat = false;
+  }
 }
 
 axios.get(`https://xmyg5r4knd.execute-api.us-west-2.amazonaws.com/dev/get`)
