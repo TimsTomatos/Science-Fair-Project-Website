@@ -173,7 +173,7 @@ button {
     color: indigo;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     .formPrompt {
         color: transparent
     }
@@ -186,4 +186,4 @@ button {
       .formPrompt {
         width: 100%;
       }
-    }
+    } */
