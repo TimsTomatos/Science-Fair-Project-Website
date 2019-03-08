@@ -172,3 +172,18 @@ button {
     cursor: pointer;
     color: indigo;
 }
+
+@media screen and (max-width: 600px) {
+    .formPrompt {
+        color: transparent
+    }
+    a {
+        width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 383px) {
+      .formPrompt {
+        width: 100%;
+      }
+    }
